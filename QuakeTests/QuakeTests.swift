@@ -10,27 +10,44 @@ import XCTest
 
 final class QuakeTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    func testGeoJSONDecoderDecodesQuake() throws {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .millisecondsSince1970
+        let quake = try decoder.decode(Quake.self, from: testFeature_nc73649170)
+        
+        XCTAssertEqual(quake.magnitude, 0.34)
+        XCTAssertEqual(quake.place, "5km NW of The Geysers, CA")
+        XCTAssertEqual(quake.code, "73649170")
+        XCTAssertEqual(quake.detail, "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc73649170.geojson")
+        
+        let expectedSeconds = TimeInterval(1636129710550) / 1000
+        let decodedSeconds = quake.time.timeIntervalSince1970
+        
+        XCTAssertEqual(expectedSeconds, decodedSeconds, accuracy: 0.00001)
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func testGeoJSONDecoderDecodesGeoJSON() throws {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .millisecondsSince1970
+        let decoded = try decoder.decode(GeoJSON.self, from: testQuakesData)
+        
+        XCTAssertEqual(decoded.quakes.count, 6)
+        XCTAssertEqual(decoded.quakes[0].magnitude, 0.34)
+        XCTAssertEqual(decoded.quakes[0].place, "5km NW of The Geysers, CA")
+        XCTAssertEqual(decoded.quakes[0].code, "73649170")
+        XCTAssertEqual(decoded.quakes[0].detail, "https://earthquake.usgs.gov/earthquakes/feed/v1.0/detail/nc73649170.geojson")
+        
+        let expectedSeconds = TimeInterval(1636129710550) / 1000
+        let decodedSeconds = decoded.quakes[0].time.timeIntervalSince1970
+        
+        XCTAssertEqual(expectedSeconds, decodedSeconds, accuracy: 0.00001)
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testQuakeDetailsDecoder() throws {
+        let decoder = JSONDecoder()
+        let decoded = try decoder.decode(QuakeLocation.self, from: testDetail_hv72783692)
+        XCTAssertEqual(decoded.latitude, 19.2189998626709, accuracy: 0.00000000001)
+        XCTAssertEqual(decoded.longitude, -155.434173583984, accuracy: 0.00000000001)
     }
 
 }
