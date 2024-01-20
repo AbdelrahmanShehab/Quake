@@ -14,6 +14,7 @@ struct Quake: Identifiable {
     let time: Date
     let code: String
     let detail: URL
+    var location: QuakeLocation?
     var id: String { code }
 }
 

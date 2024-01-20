@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		635C76BB2B5BEAD4008F7ACF /* CacheEntryObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C76BA2B5BEAD4008F7ACF /* CacheEntryObject.swift */; };
+		635C76BD2B5BEBB7008F7ACF /* NSCache+Subscript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635C76BC2B5BEBB7008F7ACF /* NSCache+Subscript.swift */; };
 		639DF4FE2B502A620012B194 /* HTTPDataDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639DF4FD2B502A620012B194 /* HTTPDataDownloader.swift */; };
 		639DF5002B502D050012B194 /* QuakeClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639DF4FF2B502D050012B194 /* QuakeClient.swift */; };
 		639DF5022B50302B0012B194 /* TestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FA33242B4FF76B00DBC9C5 /* TestData.swift */; };
@@ -52,6 +54,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		635C76BA2B5BEAD4008F7ACF /* CacheEntryObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheEntryObject.swift; sourceTree = "<group>"; };
+		635C76BC2B5BEBB7008F7ACF /* NSCache+Subscript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSCache+Subscript.swift"; sourceTree = "<group>"; };
 		639DF4FD2B502A620012B194 /* HTTPDataDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPDataDownloader.swift; sourceTree = "<group>"; };
 		639DF4FF2B502D050012B194 /* QuakeClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuakeClient.swift; sourceTree = "<group>"; };
 		639DF5042B5030980012B194 /* TestDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestDownloader.swift; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				63FA33212B4FF3B800DBC9C5 /* QuakeError.swift */,
 				63FA33282B500E4D00DBC9C5 /* QuakeLocation.swift */,
 				639FD4392B52827E005E178D /* Quake+Colors.swift */,
+				635C76BA2B5BEAD4008F7ACF /* CacheEntryObject.swift */,
+				635C76BC2B5BEBB7008F7ACF /* NSCache+Subscript.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 			files = (
 				639DF5072B50347D0012B194 /* QuakesProvider.swift in Sources */,
 				639FD43A2B52827E005E178D /* Quake+Colors.swift in Sources */,
+				635C76BB2B5BEAD4008F7ACF /* CacheEntryObject.swift in Sources */,
 				639FD44C2B529266005E178D /* QuakeMagnitude.swift in Sources */,
 				639DF5022B50302B0012B194 /* TestData.swift in Sources */,
 				639FD4462B528B14005E178D /* ToolbarStatus.swift in Sources */,
@@ -360,6 +367,7 @@
 				63FA33222B4FF3B800DBC9C5 /* QuakeError.swift in Sources */,
 				639FD4422B52864A005E178D /* RefreshButton.swift in Sources */,
 				639FD44A2B5291CB005E178D /* QuakeRow.swift in Sources */,
+				635C76BD2B5BEBB7008F7ACF /* NSCache+Subscript.swift in Sources */,
 				63FA33292B500E4D00DBC9C5 /* QuakeLocation.swift in Sources */,
 				639FD4442B528779005E178D /* SelectButton.swift in Sources */,
 				639FD44E2B5298F8005E178D /* Quakes.swift in Sources */,
