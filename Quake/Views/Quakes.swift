@@ -13,7 +13,7 @@ struct Quakes: View {
     
     @EnvironmentObject var provider: QuakesProvider
     @State var editMode: EditMode = .inactive
-    @State var selectMode: SelectMode = .inActive
+    @State var selectMode: SelectMode = .inactive
     @State var isLoading: Bool = false
     @State var selection: Set<String> = []
     @State private var error: QuakeError?
@@ -23,21 +23,28 @@ struct Quakes: View {
         NavigationView {
             List(selection: $selection) {
                 ForEach(provider.quakes) { quake in
-                    QuakeRow(quake: quake)
+                    NavigationLink(destination: QuakeDetail(quake: quake)) {
+                        QuakeRow(quake: quake)
+                    }
                 }
                 .onDelete(perform: deleteQuakes)
             }
             .navigationTitle(title)
             .listStyle(.insetGrouped)
-            .environment(\.editMode, $editMode)
             .toolbar(content: toolbarContent)
+            .environment(\.editMode, $editMode)
             .refreshable {
-                await fetchQuakes()
+                do {
+                    try await provider.fetchQuakes()
+                } catch {
+                    self.error = QuakeError.missingData
+                    hasError = true
+                }
             }
             .alert(isPresented: $hasError, error: error) {}
         }
         .task {
-            await fetchQuakes()
+            try? await provider.fetchQuakes()
         }
     }
 }
@@ -105,7 +112,7 @@ extension Quakes {
             EditButton(editButton: $editMode) {
                 selection.removeAll()
                 editMode = .inactive
-                selectMode = .inActive
+                selectMode = .inactive
             }
         }
         

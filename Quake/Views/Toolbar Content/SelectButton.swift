@@ -9,7 +9,7 @@ import SwiftUI
 
 enum SelectMode {
     case active
-    case inActive
+    case inactive
     
     var isActive: Bool {
         self == .active
@@ -18,8 +18,8 @@ enum SelectMode {
     mutating func toggle() {
         switch self {
         case .active:
-            self = .inActive
-        case .inActive:
+            self = .inactive
+        case .inactive:
             self = .active
         }
     }
