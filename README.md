@@ -8,7 +8,10 @@
 Introducing **Quake App** - a module that guides you through the development of earthquake data. This app queries and presents earthquake data in an easy-to-navigate interface.
 
 ## Screenshot
-![quake](https://github.com/AbdelrahmanShehab/Quake/assets/36604938/d23a8ed1-0802-429e-a58e-ec470ccd1db4)
+<div style="display: flex; justify-content: space-between; margin: 20px;">
+  <img src="https://github.com/AbdelrahmanShehab/Quake/assets/36604938/4e94c658-e7f5-48b6-88e4-2c41555ebfea" alt="quake_image1" style="width: 45%;">
+  <img src="https://github.com/AbdelrahmanShehab/Quake/assets/36604938/a8e60833-16ad-4bdf-b693-3413aadce2fd" alt="quake_image2" style="width: 45%;">
+</div>
 
 ## Key Features
 
