@@ -56,7 +56,8 @@ struct Quakes: View {
 
 extension Quakes {
     var title: String {
-        if selectMode.isActive || selection.isEmpty {
+        
+        if  !editMode.isActive {
             return "Earthquakes"
         } else {
             return "\(selection.count) Selected"

@@ -34,3 +34,10 @@ struct EditButton: View {
 #Preview {
     EditButton(editButton: .constant(.active))
 }
+
+extension EditMode {
+    
+    var isActive: Bool {
+        self == .active
+    }
+}

@@ -8,6 +8,7 @@
 import SwiftUI
 
 @main
+@MainActor
 struct QuakeApp: App {
     
     @StateObject var quakeProvider = QuakesProvider()
